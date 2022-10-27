@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Grid, Button, Tab, Tabs } from "@mui/material";
 import Token from "../../../components/Token";
 import ViewAgendaIcon from "@mui/icons-material/ViewAgenda";
+import { Link } from "react-router-dom";
 const Appointments = () => {
   const [value, setValue] = useState(0);
   const handleTabChange = (e, tabId) => setValue(tabId);
@@ -9,15 +10,17 @@ const Appointments = () => {
   return (
     <Grid container flexDirection="column" padding={5}>
       <Grid container justifyContent="flex-end">
-        <Button variant="contained" color="success">
-          <ViewAgendaIcon sx={{ mr: 2 }} />
-          Booking
-        </Button>
+        <Link to="/doctors/bookings" style={{ textDecoration: "none" }}>
+          <Button variant="contained" color="success">
+            <ViewAgendaIcon sx={{ mr: 2 }} />
+            Booking
+          </Button>
+        </Link>
       </Grid>
       <Grid
         container
         flexDirection="column"
-        justifyContents="center"
+        justifyContent="center"
         alignItems="center"
       >
         <Token
@@ -49,7 +52,7 @@ const Appointments = () => {
       {value === 0 && (
         <Grid container spacing={2}>
           {Array.from(Array(10).keys()).map((item) => (
-            <Grid item xs={3} md={2}>
+            <Grid key={item} item xs={3} md={2}>
               <Token
                 number={item + 10}
                 time="14:10"

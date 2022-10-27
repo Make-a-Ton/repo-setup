@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { createTheme, ThemeProvider } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
-import { Appointments } from "./pages/doctor";
+import { Appointments, Bookings } from "./pages/doctor";
 
 function App() {
   const theme = createTheme({
@@ -30,6 +30,7 @@ function App() {
             <Route path="login" element={<div>login</div>} />
             <Route path="signup" element={<div>signup</div>} />
             <Route path="appointments" element={<Appointments />} />
+            <Route path="bookings" element={<Bookings />} />
           </Route>
         </Routes>
       </Router>
